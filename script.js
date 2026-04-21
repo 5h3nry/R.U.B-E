@@ -8,10 +8,12 @@ function logIn() {
   let pass = document.getElementById('passInput').value
 
     if(user === "a.stoddard" && pass === "AlphaCentauri1") {
+      document.getElementById('invalid').innerHTML = ''
       user = 'a.stoddard';
 
     } else {
+      event.preventDefault;
     alert('Please enter a valid login.');
-    document.getElementById('invalid').innerHTML = <span>INVALID LOGIN</span>
+    document.getElementById('invalid').innerHTML = '<span>INVALID LOGIN</span>'
   }
 };
