@@ -17,20 +17,24 @@ function render(replacement) {
 
 // Makes the user able to login to different accounts, ADD MORE USERS HERE.
 function logIn() {
-  let user = document.getElementById("userInput").value;
-  let pass = document.getElementById("passInput").value;
+  let username = document.getElementById("userInput").value;
+  let password = document.getElementById("passInput").value;
 
-  if (user === "a.stoddard" && pass === "AlphaCentauri1") {
+  if (username === "a.stoddard" && password === "AlphaCentauri1") {
     document.getElementById("invalid").innerHTML = "";
-    user = "a.stoddard";
+    user = "A.Stoddard";
     window.alert("Welcome, A.Stoddard");
     render(`
-      <h1>Welcome, A.Stoddard.</h1>
-      <nav><ul>
-      <li><a href="google.com">files</a></li>
-      </ul></nav>
-      `
-    );
+      <h1>Welcome, ${user}.</h1>
+      <nav class="site clear">
+      <ul>
+      <li><a href="google.com" id="docs">Documents</a></li>
+      <li><a href="google.com" id="vids">Video Logs</a></li>
+      </ul>
+      </nav>
+      <div id="console">
+      </div>
+      `);
   } else {
     event.preventDefault;
     document.getElementById("userInput").classList.add("invalid");
@@ -49,3 +53,14 @@ function logIn() {
     document.getElementById("logIn").reset();
   }
 }
+
+function rendervids() {
+  if (user === "a.stoddard") {
+    document.getElementById("console").innerHTML = `
+    <div class="file">
+    </div>
+    `;
+  }
+}
+
+document.getElementById("vids").onclick = rendervids();
