@@ -11,10 +11,8 @@ const routes = {
 };
 
 //Creating render fuction to display different content.
-function render() {
-  const body = document.body ;
-
-  
+function render(replacement) {
+  document.getElementById("content").innerHTML = `${replacement}`;
 }
 
 // Makes the user able to login to different accounts, ADD MORE USERS HERE.
@@ -25,9 +23,14 @@ function logIn() {
   if (user === "a.stoddard" && pass === "AlphaCentauri1") {
     document.getElementById("invalid").innerHTML = "";
     user = "a.stoddard";
-    window.alert("Welcome, A.Stoddard")
-    return `
-    <h1>Welcome, A.Stoddard.</h1>`
+    window.alert("Welcome, A.Stoddard");
+    render(`
+      <h1>Welcome, A.Stoddard.</h1>
+      <nav><ul>
+      <li><a href="google.com">files</a></li>
+      </ul></nav>
+      `
+    );
   } else {
     event.preventDefault;
     document.getElementById("userInput").classList.add("invalid");
