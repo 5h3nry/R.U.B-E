@@ -1,6 +1,7 @@
 // This allows me to check if the user is logged in at all times. Along with other things.
 const state = {
   user: null,
+  dashboard: null,
 };
 
 //Creates a routing object that allows me to change the content based on URL, also can make some of them hide behind a login.
@@ -23,18 +24,10 @@ function logIn() {
   if (username === "a.stoddard" && password === "AlphaCentauri1") {
     document.getElementById("invalid").innerHTML = "";
     user = "A.Stoddard";
-    window.alert("Welcome, A.Stoddard");
-    render(`
-      <h1>Welcome, ${user}.</h1>
-      <nav class="site clear">
-      <ul>
-      <li><a href="google.com" id="docs">Documents</a></li>
-      <li><a href="google.com" id="vids">Video Logs</a></li>
-      </ul>
-      </nav>
-      <div id="console">
-      </div>
-      `);
+    render(dashboard());
+      document.getElementById("wrapper").classList.remove("wrapper")
+      document.getElementById("wrapper").classList.add("wrapper")
+
   } else {
     event.preventDefault;
     document.getElementById("userInput").classList.add("invalid");
@@ -54,13 +47,18 @@ function logIn() {
   }
 }
 
-function rendervids() {
-  if (user === "a.stoddard") {
-    document.getElementById("console").innerHTML = `
-    <div class="file">
-    </div>
-    `;
-  }
+function dashboard() {
+    return `<h1>Welcome, ${user}.</h1>
+      <nav class="site clear">
+      <ul>
+      <li><a href="google.com" id="docs">Documents</a></li>
+      <li><a href="google.com" id="vids">Video Logs</a></li>
+      <li><a href="google.com" id="voice">Voice Logs</a></li>
+      </ul>
+      </nav>
+      <div id="console">
+      </div>`;
 }
 
 document.getElementById("vids").onclick = rendervids();
+
