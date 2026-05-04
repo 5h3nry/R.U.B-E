@@ -25,9 +25,6 @@ function logIn() {
     document.getElementById("invalid").innerHTML = "";
     user = "A.Stoddard";
     render(dashboard());
-      document.getElementById("wrapper").classList.remove("wrapper")
-      document.getElementById("wrapper").classList.add("wrapper")
-
   } else {
     event.preventDefault;
     document.getElementById("userInput").classList.add("invalid");
@@ -48,7 +45,7 @@ function logIn() {
 }
 
 function dashboard() {
-    return `<h1>Welcome, ${user}.</h1>
+  return `<h1>Welcome, ${user}.</h1>
       <nav class="site clear">
       <ul>
       <li><a href="google.com" id="docs">Documents</a></li>
@@ -61,4 +58,3 @@ function dashboard() {
 }
 
 document.getElementById("vids").onclick = rendervids();
-
