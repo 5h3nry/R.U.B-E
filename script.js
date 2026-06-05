@@ -24,7 +24,7 @@ function logIn() {
   if (username === "a.stoddard" && password === "AlphaCentauri1") {
     document.getElementById("invalid").innerHTML = "";
     user = "A.Stoddard";
-    render(dashboard(), renderDocuments());
+    render(dashboard());
   } else {
     event.preventDefault;
     document.getElementById("userInput").classList.add("invalid");
